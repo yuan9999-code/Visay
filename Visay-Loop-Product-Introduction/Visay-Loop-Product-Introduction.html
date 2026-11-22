@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html data-page-node-id="yASiwhF86a4QIKi1stoQU0" lang="en">
+<head data-page-node-id="aCDcBS8gsGrnfaC36SrN3B">
+<script data-page-node-id="atiVA5jrmYAAAg4kyE5Pcb" src="/page/page_comm/inject.js"></script>
+<meta data-page-node-id="jXSynr2NiV58jmSbMYz520" charset="UTF-8">
+<meta data-page-node-id="dDmJQJNs6RIOPPQcU1BUJ3" content="width=device-width, initial-scale=1.0" name="viewport">
+<title data-page-node-id="8NNW3fAQRZhI9K1SYGP0sa" data-pnid-children="JtLjyc5nE79M0M7BT5RJOa">Visay Loop | Product Introduction</title>
+<style data-page-node-id="YAwYw2zgmabQ7l4wLc2xUq" data-pnid-children="aA9mFfsnSfIGJL7bWA1ZGk">
+  :root {
+    --bg: #0b0a09;
+    --surface: #161311;
+    --surface-2: #1d1815;
+    --line: rgba(214, 173, 104, 0.22);
+    --line-strong: rgba(214, 173, 104, 0.48);
+    --gold: #d6ad68;
+    --gold-bright: #f2d6a2;
+    --text: #f4eee5;
+    --muted: #a89e91;
+    --radius: 18px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background:
+      radial-gradient(900px 520px at 78% -8%, rgba(214, 173, 104, 0.13), transparent 62%),
+      radial-gradient(700px 500px at 4% 32%, rgba(122, 88, 48, 0.10), transparent 60%),
+      var(--bg);
+    color: var(--text);
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", system-ui, sans-serif;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+
+  /* nav */
+  .nav {
+    position: sticky; top: 0; z-index: 20;
+    backdrop-filter: blur(14px);
+    background: rgba(11, 10, 9, 0.78);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: 0.04em; }
+  .brand-mark {
+    width: 30px; height: 30px; border-radius: 50%;
+    border: 1px solid var(--gold); position: relative;
+    box-shadow: 0 0 18px rgba(214, 173, 104, 0.28) inset;
+  }
+  .brand-mark::after {
+    content: ""; position: absolute; inset: 7px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold-bright), #8d6534);
+  }
+  .nav-links { display: flex; gap: 28px; font-size: 13px; color: var(--muted); }
+  .nav-links a:hover { color: var(--gold-bright); }
+  .nav-tag { font-size: 11px; letter-spacing: 0.18em; color: var(--gold); border: 1px solid var(--line); padding: 5px 12px; border-radius: 999px; }
+
+  /* hero */
+  .hero { padding: 86px 0 70px; }
+  .hero-grid { display: grid; grid-template-columns: 1.02fr 0.98fr; gap: 60px; align-items: center; }
+  .eyebrow { font-size: 12px; letter-spacing: 0.26em; color: var(--gold); text-transform: uppercase; margin-bottom: 22px; }
+  .hero h1 { font-size: clamp(46px, 6vw, 78px); line-height: 1.08; margin: 0 0 12px; letter-spacing: -0.02em; }
+  .hero h1 span { color: var(--gold-bright); }
+  .hero-sub { font-size: clamp(19px, 2.2vw, 25px); font-weight: 600; margin: 0 0 22px; }
+  .hero-desc { color: var(--muted); font-size: 15.5px; max-width: 560px; margin: 0 0 28px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 34px; }
+  .chip { font-size: 12px; color: var(--gold-bright); border: 1px solid var(--line); background: rgba(214, 173, 104, 0.06); padding: 6px 13px; border-radius: 999px; }
+  .actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 999px; font-size: 14px; font-weight: 600; border: 1px solid transparent; transition: 0.2s ease; }
+  .btn-primary { background: linear-gradient(120deg, var(--gold-bright), #b98c4a); color: #1a1208; }
+  .btn-primary:hover { filter: brightness(1.08); transform: translateY(-2px); }
+  .btn-ghost { border-color: var(--line-strong); color: var(--gold-bright); }
+  .btn-ghost:hover { background: rgba(214, 173, 104, 0.08); }
+  .hero-visual { position: relative; }
+  .hero-visual::before {
+    content: ""; position: absolute; inset: 12% 8% 6%; border-radius: 50%;
+    background: radial-gradient(circle, rgba(214, 173, 104, 0.22), transparent 65%);
+    filter: blur(34px);
+  }
+  .hero-visual img { position: relative; width: 100%; display: block; border-radius: 26px; border: 1px solid var(--line); box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
+
+  /* sections */
+  section { padding: 70px 0; }
+  .sec-head { margin-bottom: 38px; }
+  .sec-index { font-size: 12px; color: var(--gold); letter-spacing: 0.24em; display: block; margin-bottom: 10px; }
+  .sec-head h2 { font-size: clamp(27px, 3.4vw, 39px); margin: 0 0 12px; letter-spacing: -0.01em; }
+  .sec-head p { color: var(--muted); max-width: 760px; margin: 0; font-size: 15px; }
+
+  .position-box {
+    border: 1px solid var(--line); border-radius: var(--radius);
+    background: linear-gradient(135deg, rgba(214,173,104,0.08), rgba(255,255,255,0.015));
+    padding: 38px 42px; position: relative; overflow: hidden;
+  }
+  .position-box::after { content: "\201C"; position: absolute; right: 30px; top: -26px; font-size: 150px; color: rgba(214,173,104,0.08); font-family: Georgia, serif; }
+  .position-box h3 { margin: 0 0 12px; font-size: 23px; }
+  .position-box p { margin: 0; color: var(--muted); max-width: 880px; }
+
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .card {
+    border: 1px solid var(--line); border-radius: var(--radius);
+    background: linear-gradient(160deg, var(--surface-2), var(--surface));
+    padding: 28px 26px; transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .card:hover { transform: translateY(-4px); border-color: var(--line-strong); }
+  .card-num { font-size: 12px; color: var(--gold); letter-spacing: 0.15em; }
+  .card h3 { font-size: 18px; margin: 12px 0 10px; }
+  .card p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--line-strong), transparent); margin: 0; }
+
+  /* structure */
+  .structure-img-wrap { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #0a0807; }
+  .structure-img-wrap img { width: 100%; display: block; }
+  .caption { color: var(--muted); font-size: 12.5px; margin: 12px 2px 44px; }
+  .layer-title { display: flex; align-items: center; gap: 12px; margin: 34px 0 16px; font-size: 17px; font-weight: 700; }
+  .layer-title .bar { width: 3px; height: 19px; background: var(--gold); border-radius: 2px; }
+  .layer-title .en { font-size: 11px; letter-spacing: 0.14em; color: var(--gold); font-weight: 500; }
+  .module-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .module { border: 1px solid var(--line); border-radius: 14px; padding: 20px 20px 18px; background: rgba(255,255,255,0.018); }
+  .module strong { display: block; font-size: 15px; margin-bottom: 7px; color: var(--gold-bright); }
+  .module span { font-size: 13px; color: var(--muted); }
+
+  /* zones */
+  .zones { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .zone { border: 1px solid var(--line); border-radius: 16px; padding: 26px 22px; background: linear-gradient(160deg, rgba(214,173,104,0.07), transparent); text-align: center; }
+  .zone-dot { width: 34px; height: 34px; margin: 0 auto 14px; border-radius: 50%; border: 1px solid var(--gold); position: relative; }
+  .zone-dot::after { content: ""; position: absolute; inset: 9px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 14px var(--gold); }
+  .zone h3 { margin: 0 0 7px; font-size: 16px; }
+  .zone p { margin: 0; color: var(--muted); font-size: 12.5px; }
+
+  /* scenarios */
+  .scenario { border-top: 1px solid var(--line); padding: 22px 0; display: grid; grid-template-columns: 180px 1fr; gap: 26px; }
+  .scenario:last-child { border-bottom: 1px solid var(--line); }
+  .scenario h3 { margin: 0; font-size: 17px; }
+  .scenario p { margin: 0; color: var(--muted); font-size: 14.5px; }
+
+  /* spec table */
+  .table-wrap { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 15px 22px; border-bottom: 1px solid var(--line); }
+  th { color: var(--gold); font-weight: 600; width: 30%; background: rgba(214,173,104,0.04); }
+  td { color: var(--muted); }
+  tr:last-child th, tr:last-child td { border-bottom: none; }
+
+  .note { color: var(--muted); font-size: 12.5px; border-left: 2px solid var(--gold); padding-left: 14px; margin-top: 22px; }
+  footer { border-top: 1px solid var(--line); padding: 32px 0 46px; color: #7f756a; font-size: 12px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 34px; }
+    .hero { padding-top: 56px; }
+    .grid-4, .module-grid, .zones { grid-template-columns: repeat(2, 1fr); }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .wrap { width: min(100% - 32px, 1180px); }
+    .grid-2, .grid-4, .module-grid, .zones { grid-template-columns: 1fr; }
+    .scenario { grid-template-columns: 1fr; gap: 6px; }
+    .position-box { padding: 26px 22px; }
+    section { padding: 52px 0; }
+  }
+  @media print {
+    body { background: #fff; color: #111; }
+    .nav, .actions { display: none; }
+    .card, .module, .zone, .position-box, .table-wrap, .structure-img-wrap { break-inside: avoid; }
+  }
+</style>
+</head>
+<body data-page-node-id="rXIeHITvrZ7DzhHaGZbZkw">
+
+<div data-page-node-id="ngm0zCN2tbEVwTyr7UIpJE" class="nav">
+  <div data-page-node-id="PSLnHlUp1Omp2UlgKi39wi" class="wrap nav-inner">
+    <div data-page-node-id="pldjQzUbth29aufMxMRKS9" class="brand"><span data-page-node-id="3jaLjea3YisIBDSrJpQ0aD" class="brand-mark"></span><!--pnid:nzG97uW4a0UgrvzzHoCTxc--> Visay Loop</div>
+    <div data-page-node-id="LI38K0BU3PLz8Cx06Efsdr" class="nav-links">
+      <a data-page-node-id="w2zZ29yT2Tpw4ebajFg4Uc" href="#position"><!--pnid:9fahqNxqjag4d3as002c8G-->Positioning</a>
+      <a data-page-node-id="c4PZiBKXI4SUkc3pXboIRu" href="#highlights"><!--pnid:PGomLViWAnpfPTAYyclH8b-->Highlights</a>
+      <a data-page-node-id="lShsQXOicyjGfN1fK7Lr0o" href="#structure"><!--pnid:p0XFR6bp4ndqI8kZOFVOsV-->Architecture</a>
+      <a data-page-node-id="4YR1CPRSPmwoP2tsCctoPO" href="#zones"><!--pnid:ge1BXIRTMG5Nkl6Q3eg2Gg-->Sensing Area</a>
+      <a data-page-node-id="EUJmhccGm4L4biMuUImcMl" href="#scenarios"><!--pnid:voVRvwRt0YMGqCJNINvdFF-->Use Cases</a>
+      <a data-page-node-id="6BGpmLm8bytSgpIbuvQIZF" href="#specs"><!--pnid:EuO5AcLshLKe5dnGkl8q5E-->Specifications</a>
+    </div>
+    <div data-page-node-id="hpJsLSLl5VPFBR4nT7dbFS" class="nav-tag"><!--pnid:liImjlZr0C8LLye0uCM2Y8-->PRODUCT BRIEF</div>
+  </div>
+</div>
+
+<header data-page-node-id="ySBjtCQLv3QxwTOiwnPN7f" class="hero">
+  <div data-page-node-id="jqdvL73u8N7u2xtsnloTwt" class="wrap hero-grid">
+    <div data-page-node-id="pUqqesVcs2WFo9LIbeRJgy">
+      <div data-page-node-id="LhDnGOMI65U08CmcSU1k9m" class="eyebrow"><!--pnid:18ES8MW9o3BydIPa2sRxJT-->Multimodal Wearable · Product Introduction</div>
+      <h1 data-page-node-id="YD3qCxJ0tgBrEGkdsTFnD6"><!--pnid:7Rfk9MCYwtVbQvzB3dPnhP-->Visay<span data-page-node-id="kz8iZ4zA2xvlYZ8EjA2JTO"><!--pnid:2AV5oOKamwVcLEIqR5Pgb7-->Loop</span></h1>
+      <p data-page-node-id="nZjxZyJQ14rWPO3sE8irPm" class="hero-sub"><!--pnid:izdJt6kzmi5lWc7gh7vNT8-->Let silence be heard.</p>
+      <p data-page-node-id="gVoo0DBT6HuPZOBL8d2sA0" class="hero-desc"><!--pnid:0Q3gTHYgWuhzJ8ZaVeaCv2-->An ear-worn multimodal sensing device. A flexible face-hugging outer layer pairs with internal ear-EEG, multi-point EMG, a directional microphone array, and an outward-facing speaker — linking capture, recognition, and feedback into one complete loop for low-voice and even silent interaction.</p>
+      <div data-page-node-id="5Y7n27OzHhNAtxs3OsxkuU" class="chips">
+        <span data-page-node-id="6Uo3rxhkNYKDrwvvx0TzZS" class="chip"><!--pnid:jddn36ekqT42927K7TE4Pz-->Ear EEG</span>
+        <span data-page-node-id="w3tlgUcKW5XAnTWHbjCaWj" class="chip"><!--pnid:NjqIFimAyekURh2wUwEw0V-->Multi-point EMG</span>
+        <span data-page-node-id="k6muZyx4a0GwIT5KmJm8G0" class="chip"><!--pnid:NX25LT39kkIWL3JtCfHJfa-->Directional Audio</span>
+        <span data-page-node-id="062MxBPMr62a9mdzazBSs3" class="chip"><!--pnid:GuttJytmzUK0IAafLldqD3-->Vibration Feedback</span>
+        <span data-page-node-id="vwCuT88vX91VNGyodBFrZC" class="chip"><!--pnid:Uq8agcUdtd9l5EGzP8mW0y-->Voice Output</span>
+        <span data-page-node-id="zaaNeUYLUMI5myevMiI6fL" class="chip"><!--pnid:hGP8xIGnudMNiikRbLMvGS-->Wireless</span>
+      </div>
+      <div data-page-node-id="aqm2RR55LOyQ6B657HNTKq" class="actions">
+        <a data-page-node-id="EMrXKSGqWP3GlACnMivYwM" class="btn btn-primary" href="#highlights"><!--pnid:JWKqhMrZpqUcLbgvlPOJQZ-->Explore highlights →</a>
+        <a data-page-node-id="6xE6Wwqy3UqQBYsjPqCVTt" class="btn btn-ghost" href="#structure"><!--pnid:ANi0qrUvwFHikf9CPyrsrh-->View architecture</a>
+      </div>
+    </div>
+    <div data-page-node-id="fT7mlQbtWb2CfgkX2Ll61F" class="hero-visual">
+      <img data-page-node-id="18QM3f1JMzMLs32C6SHFdn" alt="Visay Loop product render: black-and-gold ear-worn device with a flexible transparent facial wrapping structure" src="assets/product-hero.jpg">
+    </div>
+  </div>
+</header>
+
+<section data-page-node-id="049hnhUoWel7gt2EMfDrmh" id="position">
+  <div data-page-node-id="XLdRXJB0dDiIamyP9HSqaJ" class="wrap">
+    <div data-page-node-id="dKVzAZyM94lrewjfb3OY13" class="sec-head">
+      <span data-page-node-id="W5NRyoapBD9c8krRLzEOVe" class="sec-index"><!--pnid:YsIVxyuqDioMQWzRQ8vgis-->01 / POSITIONING</span>
+      <h2 data-page-node-id="O0xiN4b27VakKbV7qD4Ie0"><!--pnid:4VkRd9ldLoM34fpDBeNkEJ-->Positioning</h2>
+    </div>
+    <div data-page-node-id="dxrV1spXQ1Rqs48PCAkOAs" class="position-box">
+      <h3 data-page-node-id="QxL5miJOTyjgXh1aTYbB4Q"><!--pnid:uPoc7616EWXpyfzpoOpE8m-->Not just another headset — a multimodal interaction system worn at the ear.</h3>
+      <p data-page-node-id="BQKsTQmPA8ZmPI2ngtS1Iv"><!--pnid:45EtPP85Idw0FbVKZWlKpR-->Where conventional voice devices only listen for sound, Visay Loop reads facial electromyography (EMG), around-ear electroencephalography (EEG), and external speech at the same time. An AI controller handles capture and sensor fusion, then delivers feedback through vibration and an outward-facing speaker. The soft wrapping layer conforms to the masseter, perioral, zygomatic, and submental regions, while the ear-hook frame carries the load — keeping the sensing modules close to their signal sources without sacrificing stability or comfort. It answers a simple question: how can communication stay natural and understandable when speaking out loud is difficult or impossible?</p>
+    </div>
+  </div>
+</section>
+
+<section data-page-node-id="zDa1cwyuiXCpiU8Z7DOu0X" id="highlights">
+  <div data-page-node-id="YOuX9GAV9aLQ68dWbp1Yo0" class="wrap">
+    <div data-page-node-id="WTWsEbMYPtayrh5srB11M6" class="sec-head">
+      <span data-page-node-id="S6uMZjuD3Osju6HhmZMt2j" class="sec-index"><!--pnid:B1wzenIQatRBVLT5LxLfY1-->02 / HIGHLIGHTS</span>
+      <h2 data-page-node-id="BYna6Pw41FeMEPZaMyXjiL"><!--pnid:RDM08HLWtjxgheSFKBaLSv-->Highlights</h2>
+      <p data-page-node-id="ApojPBgCcz4XvklG4DyEGK"><!--pnid:ksAYI8pPT5ZX6dgYmgGqNi-->Four layers of capability, from signal capture to interactive feedback.</p>
+    </div>
+    <div data-page-node-id="ANPajQ6FOjl14WF84zy2lD" class="grid-4">
+      <div data-page-node-id="qyNXeFNTA61aY6NIeX6AEY" class="card">
+        <div data-page-node-id="0LxNxgI1ZPZ9L2f1KZKpnO" class="card-num"><!--pnid:2RU2Zk9fveC5u6BGPJiy5A-->01 / WEAR</div>
+        <h3 data-page-node-id="vYIH1du2exC7LAZSgcy0Hr"><!--pnid:AIMrewWJ79kYIkRyPbKEll-->Flexible fit, secure wear</h3>
+        <p data-page-node-id="xjdHlLOSkom4gJvptWEcuP"><!--pnid:2My0UH6LfkuL4fud7WJC8d-->The shell and ear-hook frame provide structure while the flexible sensing layer conforms to the face. An internal lightweight high-strength frame handles support and heat dissipation, keeping the device comfortable and stable over long sessions.</p>
+      </div>
+      <div data-page-node-id="8J9oEImOw5ad3x742Kzd2r" class="card">
+        <div data-page-node-id="uJgjfFeFKMl5uTgv2RHzGo" class="card-num"><!--pnid:BgWsdblgoxQEbKy6vPSGCn-->02 / SENSE</div>
+        <h3 data-page-node-id="wEozd3dGKYuOBZbJJES4Nz"><!--pnid:KBTByHA3vvZQNQTONNnF33-->Multimodal sensor fusion</h3>
+        <p data-page-node-id="4jTPxcwVHlDbkM0xiHrV4A"><!--pnid:RTdp6CE29f63mVEEzb6ag6-->The ear-EEG module, multi-point EMG electrode array, and directional microphone array work in concert. The main controller and signal-processing board capture and fuse the data, drawing on a richer set of signals.</p>
+      </div>
+      <div data-page-node-id="cg2jr6SVfBEgJzSTaeW0Vz" class="card">
+        <div data-page-node-id="bK9Dc3pJ28mXcW7yndf7S3" class="card-num"><!--pnid:hzmLM1H7AxBR1tyO7qxtDz-->03 / FEEDBACK</div>
+        <h3 data-page-node-id="uZqovw7gUTatO21kzoBHLy"><!--pnid:EOuspH8hrcRdxuCZGrCaU9-->Two-way interaction</h3>
+        <p data-page-node-id="Mn2QYuPPgiOKj1zCLBIZJb"><!--pnid:M9DOrtqSNEWMjSpZ1nYKG3-->A vibration motor handles status cues and haptic feedback, while the outward-facing speaker delivers recognized results or speech to others — closing the loop from capture to recognition to expression.</p>
+      </div>
+      <div data-page-node-id="gqU5eOBYiAIvaZib4vCDJv" class="card">
+        <div data-page-node-id="fdmy7ee8MK1648P7Bbpduf" class="card-num"><!--pnid:reZYWE8CaurtL89FSSECSL-->04 / SYSTEM</div>
+        <h3 data-page-node-id="hah4l5XQJBkDi7ewHcOsq8"><!--pnid:KTruaP1YfiwbmRcGoJhjEZ-->System-level design</h3>
+        <p data-page-node-id="lj2obvu1RHw1vynEFeURJL"><!--pnid:xlafaNSzhygdX1R7M19F5p-->A wireless module exchanges data with external devices, and a rechargeable battery powers the whole system. Modules are arranged in layers, each with a clear role.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div data-page-node-id="e2VJSlKwY6ijytzdYg6SST" class="divider"></div>
+
+<section data-page-node-id="hHen6T6Jg4RDrmTWXoy7mY" id="structure">
+  <div data-page-node-id="tDJa0VvCcAsBdKygJx6svo" class="wrap">
+    <div data-page-node-id="xlBlihdskGt9FOYLVQXoQH" class="sec-head">
+      <span data-page-node-id="y7Rdo4vAVFPEgwS0lWYRVm" class="sec-index"><!--pnid:6b9vqZoB0jsFSJMjtFiy6p-->03 / ARCHITECTURE</span>
+      <h2 data-page-node-id="UPKqSm3gpDOPg80BgawFNB"><!--pnid:N8j9zbxN0AvHEqaUtwxly5-->Layered architecture</h2>
+      <p data-page-node-id="QtyRRXyML0EbhCsiZ8tEyh"><!--pnid:TK7ZVYt4PHVUjIDsbtWoOx-->A flexible outer sensing layer plus an internal multimodal capture system — 11 functional modules working together.</p>
+    </div>
+
+    <div data-page-node-id="p0WDHJuGUzynXbIEsLnxCq" class="structure-img-wrap">
+      <img data-page-node-id="5Zid2LxwUTLOedmZKeR9dL" alt="Visay Loop layered architecture diagram showing the shell, ear-EEG module, flexible sensing layer, multi-point EMG array, directional microphones, vibration motor, speaker, main controller, wireless module, battery, and internal frame" src="assets/structure-visay-loop.jpg">
+    </div>
+    <div data-page-node-id="EDqgCEj8bjeyHiqlN14A9e" class="caption"><!--pnid:dQPOuYOK2XtPpxWoh3essB-->Fig. Visay Loop layered architecture</div>
+
+    <div data-page-node-id="P1oxPplqM6qFNNlQ3Qnww8" class="layer-title"><span data-page-node-id="eR4mwrzpyF7vScf4RoHlis" class="bar"></span><!--pnid:5dEq0zwQOSER8z3d39mtxY-->Wear &amp; shell <span data-page-node-id="LSv0GkPRu8egc10bgZJ0Ki" class="en"><!--pnid:9Txx07Ew7yUInE0g6VgC0I-->WEAR &amp; SHELL</span></div>
+    <div data-page-node-id="CRN0hw3rgHhmUHfFEqlQi8" class="module-grid">
+      <div data-page-node-id="lawIt8Dla7ZIruiajn5At3" class="module"><strong data-page-node-id="X0FvhWOOi37VtXgfmHOsO2"><!--pnid:fp00lkOhpr3blELalzA2DA-->Shell &amp; ear-hook frame</strong><span data-page-node-id="qLnI8nli20BDGbNmfReXxz"><!--pnid:o6FHEl38slezPNJIFW2cD4-->Decorative exterior and wearing support for a secure, comfortable structure.</span></div>
+      <div data-page-node-id="a9DMm8Y30j42OJxKghQntX" class="module"><strong data-page-node-id="gfHKEtEZEORjaIQz4jQUdL"><!--pnid:lBjE8UFB9bwM6Wbl2K0aQb-->Flexible wrapping sensing layer</strong><span data-page-node-id="mDB74HSf5zcjXu2XwLUVxk"><!--pnid:yITTjorR5pZJfHpyNLZMvC-->A soft facial covering that carries the sensors and protective structure.</span></div>
+      <div data-page-node-id="aR7W7SQvRYk8SabNHfnUNt" class="module"><strong data-page-node-id="tqGH4rsqj79eAApPOdufhf"><!--pnid:2jrwlaFtphvVfKw53W0hG2-->Internal support structure</strong><span data-page-node-id="IBLdmQLenUfABHxJyF2c2s"><!--pnid:YKtu9PHIROdzcHhR647fB1-->Lightweight high-strength frame and heat-dissipation structure that secures and protects internal modules.</span></div>
+    </div>
+
+    <div data-page-node-id="qs5iyeJgusk6IbpSj1MSQ5" class="layer-title"><span data-page-node-id="CU0LBNRJDhyqT3vdZccE1D" class="bar"></span><!--pnid:hVE4UdBuSURXeuC3PPeY0r-->Multimodal sensing system <span data-page-node-id="TIjwsfTLDJRIAx1fgiH3Ty" class="en"><!--pnid:Su3HRaGmLovmuxYbZuH1eJ-->SENSING</span></div>
+    <div data-page-node-id="MKxZ4YEQkoh9wMIH1YKnIN" class="module-grid">
+      <div data-page-node-id="ccZcwbFKan9xcJXLUhU9Cz" class="module"><strong data-page-node-id="2Ys85AdY4PsLGD5bXGKhpZ"><!--pnid:94z2t5zIkExlWtOJMFUfrF-->Ear-EEG module</strong><span data-page-node-id="w5a4wqg60j998RiBq8Bazc"><!--pnid:ObqKiUju2dCRaJkHnlBbUZ-->Ring electrodes at the ear capture around-ear EEG signals.</span></div>
+      <div data-page-node-id="QZplLecnwxCifMiAgrrEsD" class="module"><strong data-page-node-id="fELOzpocXABQcDp3sHD43l"><!--pnid:RDtlpzys3bkXo5lFi2xj4r-->Multi-point EMG electrode array</strong><span data-page-node-id="QD16JSeeaIjBsbVNztRAse"><!--pnid:5B8BNMI3JetrasIa7DSr30-->Multi-point electromyography capture across the cheek, jaw, and submental area.</span></div>
+      <div data-page-node-id="wi4dgXFW27blMl8SbQCLaw" class="module"><strong data-page-node-id="NzXC5lpTnrxodDEi8m0WID"><!--pnid:C4JIU0tMiQe5fmYKKIT3Kx-->Directional microphone array</strong><span data-page-node-id="nRvSrFbo5ogHWo7i50havY"><!--pnid:ZnlZT3JMLAaIP2AaHtERFL-->Multiple microphones capture external speech together while suppressing ambient interference.</span></div>
+    </div>
+
+    <div data-page-node-id="ISwtTNIs6HaxUGSGYwSip7" class="layer-title"><span data-page-node-id="5A0IUoTViF0YXKV1VTEcfv" class="bar"></span><!--pnid:AobBbgW4tPx7V01FNxjAJb-->Interaction, computing &amp; power <span data-page-node-id="4DHaym67VzLZ9ZbSDTFzpk" class="en"><!--pnid:YxIo4IO0YcxZ7AcCAIbzSS-->INTERACTION &amp; CORE</span></div>
+    <div data-page-node-id="hJUDwnsKmafsZu2Rabc0hD" class="module-grid">
+      <div data-page-node-id="srfPvf50LEDIjvW77cbB18" class="module"><strong data-page-node-id="dEirl7PpEcmivAme2olcBv"><!--pnid:GaWPipmvWq7evWUIYRgvXy-->Vibration alert module</strong><span data-page-node-id="yGAsOzkG7pZ72IcQn5VrHt"><!--pnid:BnbW0yQWNZS3PJKKaMRRe6-->Vibration motor for status cues and haptic feedback.</span></div>
+      <div data-page-node-id="7Ly5WNwwKqop5bwlL5GdRX" class="module"><strong data-page-node-id="t1baGMydriM128vHIGJ5OG"><!--pnid:Ql6DK7Ts0fI7xFj2MzBaEB-->Outward-facing speaker</strong><span data-page-node-id="tQSt8cZxFn2RwICAuOhIel"><!--pnid:NE5p1yXlbTqMmv9dvvW6eT-->Projects recognized results or speech outward to other people.</span></div>
+      <div data-page-node-id="yizd3KfykRuBYMn9EOvakI" class="module"><strong data-page-node-id="HMqZ9YcvDiN2bCcIrWdWSc"><!--pnid:QdUAIcZT7eaf1vlQg1FP67-->Main controller &amp; signal-processing board</strong><span data-page-node-id="mXnWUYovLLWChRZGWC7J2x"><!--pnid:PhM5YTH99rC7pczyfXlK0S-->AI controller and signal processing for capture and sensor fusion.</span></div>
+      <div data-page-node-id="3gv9S1nbtFMtZVqMVNI5TK" class="module"><strong data-page-node-id="0qjCKNBtyvffEb97j9q5ke"><!--pnid:1lXcgWQbfssZelJ4UjBYRO-->Wireless communication module</strong><span data-page-node-id="tnkrYobVXqvY3Sa8uEL4i6"><!--pnid:dFyq2wSiW9I9Dre7xWNxrF-->Enables wireless data communication with external devices.</span></div>
+      <div data-page-node-id="DfzaVunel6occsLqrotkGp" class="module"><strong data-page-node-id="RLoEJLjXNRNjBs4yetxdE4"><!--pnid:Xh5dINObpgKwNr7F1AKqva-->Battery module</strong><span data-page-node-id="GDCDj9XmttwIAybvIg0uTP"><!--pnid:FKWi7fbqRaygm0PLnprrZv-->Rechargeable battery providing stable power to the whole device.</span></div>
+    </div>
+  </div>
+</section>
+
+<section data-page-node-id="19s0RwCBxfjoy9XJu8XMfG" id="zones">
+  <div data-page-node-id="Q69ngWA1qF3ZYf7QxgEchm" class="wrap">
+    <div data-page-node-id="tdDxx8cC97SJNFqI9jUMTn" class="sec-head">
+      <span data-page-node-id="EO1FiCMN9A5UIXoGqPaJ6c" class="sec-index"><!--pnid:Ns8MM54BY8daJISNTEU5Fo-->04 / SENSING AREA</span>
+      <h2 data-page-node-id="lI2QFFmEvxsHtCzIXGwsX7"><!--pnid:7DggNe8FGmEP0HSUsVhr3T-->Sensing coverage</h2>
+      <p data-page-node-id="ANYT7QNPrPGY8nmgBqVUDB"><!--pnid:UpfVUIaEZIKEHYIT9AVPFQ-->Primary facial capture regions indicated in the exploded view, corresponding to the placement range of the multi-point EMG electrodes.</p>
+    </div>
+    <div data-page-node-id="ij9K9cu3PKEiYs3VVPepew" class="zones">
+      <div data-page-node-id="RifN1CtszlB1KyoKPlIeYU" class="zone"><div data-page-node-id="GPM4kLrgtiDSIRmhZ0qao7" class="zone-dot"></div><h3 data-page-node-id="SCGKmfsL6GOYSz8BniQ7cC"><!--pnid:4sQ5g709F6GgEH4voFUn4M-->Masseter area</h3><p data-page-node-id="rS9UkWzy1rSW0c1fTUX32C"><!--pnid:HkMbYDLP0nOwekFNSN88dH-->Covers activity of the chewing-related muscle group</p></div>
+      <div data-page-node-id="QAZ4iDk8vhXIU4tpAn9UxB" class="zone"><div data-page-node-id="YVVegHk79Hmwiwn6qQKWVU" class="zone-dot"></div><h3 data-page-node-id="zxdzrkQ14XPVhF6scmR9n3"><!--pnid:5ToPEnPPdnBAgaLAy39VFH-->Perioral area</h3><p data-page-node-id="cyNNkaI5K9fma4WAi3otJ1"><!--pnid:wKo2mrxusPBLCnkoLQJLWP-->Covers mouth-shape and lip movement regions</p></div>
+      <div data-page-node-id="VCoeaOBQFAuhhChJsrjbdg" class="zone"><div data-page-node-id="Jib3EpoRQMczlJZYiiiuNV" class="zone-dot"></div><h3 data-page-node-id="z9QGJQ3yDKU49A1W1FFx3w"><!--pnid:knlHQdQleSpVDkf6xnhmjp-->Zygomatic / cheek area</h3><p data-page-node-id="RtG3XhqAqDPscO7yhTo1Ci"><!--pnid:gHBfxigxmBqmlOiWVw7e2w-->Covers upper-cheek expression-related regions</p></div>
+      <div data-page-node-id="D9jSwohUiyMueGY2OqiaIa" class="zone"><div data-page-node-id="JVYuMBOkmJ453dw6zuqdOF" class="zone-dot"></div><h3 data-page-node-id="3XS3cYWFzyX7NLvg3ZK4wq"><!--pnid:HFHs8Hch8jKrJFuIcI8B1Q-->Submental area</h3><p data-page-node-id="ASJGt2Q3JrTCs1Ce6LPfLx"><!--pnid:FWzLhN7yfsHZWpGXXz9clO-->Covers the EMG capture region below the chin</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-page-node-id="jNWObbr3UBrBnLJkeZCt93" id="scenarios">
+  <div data-page-node-id="QZ4MWNlYoDVfNKrHLcwEAT" class="wrap">
+    <div data-page-node-id="V0Lmhj2sqGU6CcqId5soUx" class="sec-head">
+      <span data-page-node-id="muwIKlrrEga9W83RKE9BLe" class="sec-index"><!--pnid:KSLwZoNFOTOg44K5Iy6Vde-->05 / USE CASES</span>
+      <h2 data-page-node-id="YJnPsEnNX39fFxj3UgcWDX"><!--pnid:ZEaWPBooNnb5bxQV6SN1fu-->Use cases</h2>
+      <p data-page-node-id="6NzwONVrt1YGMLmyuNwJ36"><!--pnid:LSvhr6o3pQjBLhKPE5i0kR-->Potential scenarios inferred from the product architecture; real-world usability depends on algorithms and full-system validation.</p>
+    </div>
+    <div data-page-node-id="zpPqjDGswEvJQnGpXRz8G2" class="scenario"><h3 data-page-node-id="WMHzgn7Gi61nR83edxgCQO"><!--pnid:qCPXnjVa4RLWypFf0HYf2a-->Quiet communication</h3><p data-page-node-id="cLgfRLW4inVhVlmuc3e4qm"><!--pnid:WsJthbvIlyh1brIrzVo7cT-->In meetings, libraries, or open offices where speaking loudly is inconvenient, low-voice or silent intent capture and voice output keep the conversation going.</p></div>
+    <div data-page-node-id="kFphM51Mlv7ybJz4wXJSs3" class="scenario"><h3 data-page-node-id="9zerflLm6KYT1koKNHRGMu"><!--pnid:alcZem2sIYBU4QnhjjJAxj-->Noisy environments</h3><p data-page-node-id="jHv4Qiuul6lD0q5HvDNH9c"><!--pnid:mVxZXB9ESa0gKWyV1GdLZu-->The directional microphone array captures external speech together while suppressing ambient noise for more reliable voice input.</p></div>
+    <div data-page-node-id="udElr17fPYEGHuSUU7Mrpy" class="scenario"><h3 data-page-node-id="3qfxGt0fN7tSLjY6akgrV8"><!--pnid:nPEE1uo4BUdpLQEzGZlrPm-->Assistive communication</h3><p data-page-node-id="NvBU6hXsuLTNAHLmwauRib"><!--pnid:5h0dBA6k0Hg0jTAoZX0P4l-->The outward speaker and vibration cues offer a potential assistive path for people with limited speech expression.</p></div>
+    <div data-page-node-id="umM6Oqekz7MOvgy7hTQdtL" class="scenario"><h3 data-page-node-id="T0DRnzdiim3v8mHnnJjX8B"><!--pnid:2V0EzcJBDC7JsQVgDMvSgF-->Device interoperability</h3><p data-page-node-id="A84IDPlPPiUgCAEd3YDZUm"><!--pnid:usGji1Iv9HeLDUe3SXmsJE-->The wireless module exchanges data with external devices, positioning Visay Loop as a wearable input node in a multi-device system.</p></div>
+  </div>
+</section>
+
+<section data-page-node-id="XSbrePvfUWqi7H8C3R3zsy" id="specs">
+  <div data-page-node-id="7R0L2NnXLdNh8FOme0rtOd" class="wrap">
+    <div data-page-node-id="eEYMp8lDyRZw0nQJSqhmXJ" class="sec-head">
+      <span data-page-node-id="QKUDats8foV3fkBu1xU9lX" class="sec-index"><!--pnid:JbvewmWK7yvVmA0fTLw7lS-->06 / SPECIFICATIONS</span>
+      <h2 data-page-node-id="VERrJfBOMM7TjGEj4Uny75"><!--pnid:11xBgngGBAzRmMwcxmmMG6-->Specifications</h2>
+    </div>
+    <div data-page-node-id="vLOpR2m3riPzQNvIguBLtT" class="table-wrap">
+      <table data-page-node-id="LRnCIUZWYDniwXVfxB7apx">
+        <tr data-page-node-id="80a7N3wD4J60QHTLrruuHd"><th data-page-node-id="v6HQ5Vuiybt1xh4kaF2kK0"><!--pnid:O1EJBmRxjaLAJQQJMiNPis-->Form factor</th><td data-page-node-id="7SfaRPqeIQSwdO49qOZQLR"><!--pnid:kGQ9XR2txx9EfSaMBCWpCS-->Ear-hook + flexible facial wrapping structure</td></tr>
+        <tr data-page-node-id="5EnT5tYpXp4P06gNJ9Uzee"><th data-page-node-id="t1znuCK5H1oxUi8nSAVfHq"><!--pnid:XL1JORMQieMiXUPM73fNId-->Sensing modules</th><td data-page-node-id="xCneiHI5po8JOacWOPcah5"><!--pnid:LmqCRKX854jddHMg3Rokmg-->Ear-EEG module, multi-point EMG electrode array, directional microphone array</td></tr>
+        <tr data-page-node-id="K3018nSWyuLdIovof6UVxz"><th data-page-node-id="6mHhXRh6yQO7D5t9DhSovK"><!--pnid:2abRs16VMyFnXUkjPwGYkD-->Feedback</th><td data-page-node-id="e8hIOjxLlOOvJExr2msQiJ"><!--pnid:V1TfbnjZJuDSILY1K64TdI-->Vibration alerts, outward-facing speaker</td></tr>
+        <tr data-page-node-id="gUPEVc6HEDkyd2hWSq44X2"><th data-page-node-id="5t32Xjqr8eigtpZzjF9blc"><!--pnid:wK7svhhHSbj6phkoedeY5F-->Processing core</th><td data-page-node-id="hZVhSuzjKmPadR1zG4A8xs"><!--pnid:k9jfQB79aAp5jFijPM490q-->AI controller and signal-processing board (capture and sensor fusion)</td></tr>
+        <tr data-page-node-id="mkOFvJuyInJSSzxRCb17cE"><th data-page-node-id="RWXqqAcVSnvrteloEZ4lbM"><!--pnid:4fyM0iIZwW7BAOh8NZN4R4-->Connectivity</th><td data-page-node-id="RLwNXvojW84gWwui69P8wL"><!--pnid:3JZxJ1FPByvsiGu0gvPPTh-->Wireless communication module for data exchange with external devices</td></tr>
+        <tr data-page-node-id="n6vYDlN9HxnR94OAd20OcX"><th data-page-node-id="WYCsLTJzkToBy3YH4qik1y"><!--pnid:daW1jqxMD3yxDu6M8zggHl-->Battery</th><td data-page-node-id="TWk8QkNymx06Swn75kFN74"><!--pnid:HVcevDDgmE3nqL6dB2h8cp-->500 mAh</td></tr>
+        <tr data-page-node-id="77XYJ3QF4CzFypcoTZ5kFI"><th data-page-node-id="dR2S16yTp18vxvR71kVf9S"><!--pnid:emNryzNE0A1AsRWZ84D2E8-->Structural design</th><td data-page-node-id="ETE3nTfPj4nDa94kxKydJ9"><!--pnid:IdirauFjkMZtQRceGnZJR2-->Shell &amp; ear-hook frame + flexible wrapping sensing layer + internal support structure</td></tr>
+        <tr data-page-node-id="WDgrvnP1it1Vo1HX9Aypdd"><th data-page-node-id="p8f8l8EVjvFYxhbvSbhWca"><!--pnid:75UcCQX8AScVn4nOB0lxyE-->Battery life / Weight / Charging</th><td data-page-node-id="5hAVrdOnEWZROZ2jM8xNYf"><!--pnid:IrsgZkEWR5QrqBVLCKNGvU-->50 hours; 35 g; Type-C fast charging</td></tr>
+        <tr data-page-node-id="VIFMVYdEHIO3raGKCF10Jl"><th data-page-node-id="nIl8xlf0SpEPff0hKS0ud2"><!--pnid:tPgX04LxyT16hplMDrTISl-->Warranty</th><td data-page-node-id="ZxCKiEiSBzRjFXHYi8X6Gb"><!--pnid:7pHZlaQRR5cmH8jqzOdjxY-->12 months</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer data-page-node-id="W2AhZKaFDh7TtM6WSMSOx4">
+  <div data-page-node-id="TVa8Rq4rBKqB0cvcPoQlRX" class="wrap" style="display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap">
+    <span data-page-node-id="x8Rywu1GjAuSHHeslYylV9"><!--pnid:3SDhAR4Nvf0wSadFlUoMxD-->Visay Loop · Product Introduction</span>
+    <span data-page-node-id="cPmvRTgFgZE9XmTswsfDSW"><!--pnid:7slCyLwEfy9rgdWdsrc75D-->Powered by love</span>
+  </div>
+</footer>
+
+</body>
+</html>

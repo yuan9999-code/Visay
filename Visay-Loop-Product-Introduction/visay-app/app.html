@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Visay · 我的</title>
+<link rel="stylesheet" href="app.css" />
+</head>
+<body data-theme="dark">
+<div class="phone">
+
+  <!-- 状态栏（灵动岛） -->
+  <div class="status-bar">
+    <span class="sb-time" id="sbTime">16:39</span>
+    <div class="dynamic-island" id="dynamicIsland">
+      <span class="di-dot"></span>
+      <span class="di-bars"><i></i><i></i><i></i><i></i></span>
+    </div>
+    <span class="sb-icons">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M2 20h3v-6H2v6zm5 0h3V9H7v11zm5 0h3V4h-3v16zm5 0h3v-9h-3v9z"/></svg>
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M1 9l11-7 11 7-2 3-9-6-9 6-2-3zm2 6l9 6 9-6-2-3-7 5-7-5-2 3z"/></svg>
+      <span class="sb-battery"><span class="bat-body"><i></i></span>82%</span>
+    </span>
+  </div>
+
+  <!-- 顶部标题 -->
+  <header class="app-header">
+    <div class="ah-title" id="ahTitle">个人适应</div>
+    <div class="ah-sub" id="ahSub">3 天校准 · 越用越懂你</div>
+  </header>
+
+  <!-- 内容区 -->
+  <main class="app-content" id="appContent">
+
+    <!-- ===== 个人适应 ===== -->
+    <section class="apage active" id="apage-adapt">
+      <div class="day-tabs" id="appDayTabs">
+        <button class="day-tab active" data-day="1">Day 1</button>
+        <button class="day-tab" data-day="2">Day 2</button>
+        <button class="day-tab" data-day="3">Day 3</button>
+      </div>
+
+      <!-- 自动调试选项卡（常驻，三天后激活） -->
+      <div class="card continue-card" id="continueCard">
+        <div class="card-title"><span class="dot purple"></span>自动调试 <span class="hint" id="continueHint">完成 3 天适应后开启</span></div>
+        <div class="continue-locked" id="continueLocked">完成 3 天适应，即可自由选择继续调试数据。此步骤完全自愿。</div>
+        <div class="continue-ready" id="continueReady" style="display:none">
+          <p>3 天适应已完成。是否继续自由调试、录入更多数据？可随时跳过，不影响正常使用。</p>
+          <div class="continue-actions">
+            <button class="btn primary" id="continueYes">继续调试</button>
+            <button class="btn ghost" id="continueNo">暂不需要</button>
+          </div>
+          <div class="continue-extra" id="continueExtra" style="display:none">
+            <div class="setting-row"><span>自由测试时长</span>
+              <div class="seg" id="testTimeSeg"><button data-min="5">5 分钟</button><button class="active" data-min="10">10 分钟</button><button data-min="20">20 分钟</button></div>
+            </div>
+            <button class="btn outline block" id="startExtraTest">开始自由调试</button>
+            <div class="extra-progress"><span id="extraBar"></span></div>
+            <div class="extra-tip" id="extraTip">可随时停止，数据将用于优化你的专属模型。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card prog-card">
+        <div class="prog-head"><span>今日使用进度</span><strong id="progPct">0%</strong></div>
+        <div class="prog-track"><span id="progBar" style="width:0%"></span></div>
+        <div class="prog-foot"><span>最适使用时间 <b id="progTarget">20 分钟</b></span><span id="progElapsed">已用 0 分钟</span></div>
+      </div>
+
+      <div class="card wave-card-mini">
+        <div class="card-title"><span class="dot cyan"></span>神经信号采集 <span class="live">LIVE</span></div>
+        <div class="wave-row"><span>EEG</span><canvas id="appEeg"></canvas></div>
+        <div class="wave-row"><span>EMG</span><canvas id="appEmg"></canvas></div>
+        <button class="btn primary block" id="appTrainBtn">开始今日训练</button>
+      </div>
+
+      <!-- 反馈模式 -->
+      <div class="card feedback-card">
+        <div class="card-title"><span class="dot green"></span>实时反馈模式 <span class="hint">确认识别是否准确</span></div>
+        <p class="fb-tip">耳挂识别到你的表达，请确认识别结果是否正确。</p>
+        <div class="fb-result" id="fbResult">识别结果：「我想喝水」</div>
+        <div class="fb-actions">
+          <button class="btn ok" id="fbOk">✓ 准确</button>
+          <button class="btn no" id="fbNo">✗ 不准确，去调试</button>
+        </div>
+        <div class="fb-status" id="fbStatus"></div>
+      </div>
+
+      <div class="card mini-stat">
+        <div><span>识别准确度</span><strong id="appAcc">61%</strong></div>
+        <div><span>模型版本</span><strong id="appVer">v1.0</strong></div>
+      </div>
+    </section>
+
+    <!-- ===== 对话 ===== -->
+    <section class="apage" id="apage-dialogue">
+      <div class="mode-switch" id="dlgMode">
+        <button class="mode-btn active" data-mode="multi">多人对话</button>
+        <button class="mode-btn" data-mode="single">单人对话</button>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot cyan"></span>现场人脸 <span class="hint" id="faceHint">点击头像设为主对象 · 自动聚焦字幕</span></div>
+        <div class="face-grid" id="appFaceGrid"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot purple"></span>实时字幕 <span class="live">LIVE</span></div>
+        <div class="app-subtitle" id="appSubtitle"><div class="sub-placeholder">点击人脸选择主对象后开始</div></div>
+        <button class="btn primary block" id="appPlayDlg">播放对话</button>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="dot green"></span>AI 会议纪要</div>
+        <div class="app-minutes" id="appMinutes">对话结束后自动生成纪要。</div>
+        <button class="btn outline block" id="appExportBtn">导出纪要</button>
+      </div>
+    </section>
+
+    <!-- ===== 关怀 ===== -->
+    <section class="apage" id="apage-care">
+      <div class="auto-banner"><span class="pulse-dot"></span><span>耳挂正在自动感知环境 · 发现异常将自动提示</span><span class="auto-toggle" id="autoToggle">自动识别中</span></div>
+      <div class="card">
+        <div class="card-title"><span class="dot cyan"></span>环境感知范围 <span class="hint">耳挂自动识别 · 由泛化到具体</span></div>
+        <div class="radar" id="radar">
+          <div class="radar-ring r3"></div><div class="radar-ring r2"></div><div class="radar-ring r1"></div>
+          <div class="radar-core">我</div>
+          <button class="radar-node n1" data-cat="calm">平静</button>
+          <button class="radar-node n2" data-cat="conflict">冲突</button>
+          <button class="radar-node n3" data-cat="danger">危险</button>
+          <button class="radar-node n4" data-cat="disaster">灾害</button>
+        </div>
+        <div class="radar-caption" id="radarCaption">点击外圈类别，查看由泛化到具体的环境事件</div>
+      </div>
+
+      <div class="card" id="dangerCard" style="display:none">
+        <div class="card-title"><span class="dot orange"></span><span id="dangerTitle">危险</span> <span class="hint">针对残障人士的具体情境</span></div>
+        <div class="danger-list" id="dangerList"></div>
+      </div>
+
+      <div class="care-display" id="appCareDisplay">
+        <div class="cd-icon" id="cdIcon">◎</div>
+        <div class="cd-status" id="cdStatus">一切平静</div>
+        <div class="cd-msg" id="cdMsg">周围环境暂无异常，请放心。</div>
+      </div>
+    </section>
+
+    <!-- ===== 个人中心 ===== -->
+    <section class="apage" id="apage-profile">
+      <div class="profile-hero">
+        <div class="ph-avatar">SL</div>
+        <div><div class="ph-name">我的 Visay</div><div class="ph-sub">Visay Loop · 已连接</div></div>
+      </div>
+
+      <!-- 蓝牙连接（AirPods 风格） -->
+      <div class="card bt-card">
+        <div class="card-title"><span class="dot cyan"></span>蓝牙设备 <span class="hint">点击耳挂图标连接</span></div>
+        <button class="bt-device" id="btDeviceBtn">
+          <span class="bt-visual">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 0-4 4c0 1.5.8 2.8 2 3.5V12H8a3 3 0 0 0-3 3c0 1.2.7 2.2 1.7 2.7C6.3 19.9 8.6 21 12 21s5.7-1.1 5.3-3.3A3 3 0 0 0 19 15a3 3 0 0 0-3-3h-2V9.5c1.2-.7 2-2 2-3.5a4 4 0 0 0-4-4z"/></svg>
+          </span>
+          <span class="bt-info"><b>Visay Loop</b><small id="btStatus">已连接 · 电量 82%</small></span>
+          <span class="bt-select" id="btSelect">✓</span>
+        </button>
+        <div class="bt-tip">像连接 AirPods 一样：打开耳挂充电盒 → 靠近手机 → 点击上方设备完成连接。</div>
+      </div>
+
+      <!-- 设置分组：关于我们 -->
+      <div class="settings-group">
+        <div class="group-title">关于我们</div>
+        <div class="card link-list">
+          <button class="link-item" data-doc="privacy"><span>隐私政策</span><span class="arrow">›</span></button>
+          <button class="link-item" data-doc="terms"><span>用户协议</span><span class="arrow">›</span></button>
+          <button class="link-item" data-doc="guide"><span>使用指南</span><span class="arrow">›</span></button>
+        </div>
+      </div>
+
+      <!-- 通用设置 -->
+      <div class="settings-group">
+        <div class="group-title">通用设置</div>
+        <div class="card">
+          <div class="setting-row"><span>系统语言</span>
+            <div class="seg" id="langSeg"><button class="active" data-lang="zh">中文</button><button data-lang="en">English</button></div>
+          </div>
+          <div class="setting-row"><span>字体大小</span>
+            <div class="seg" id="fontSeg"><button data-font="s">小</button><button class="active" data-font="m">标准</button><button data-font="l">大</button></div>
+          </div>
+          <div class="setting-row"><span>APP 主色调</span>
+            <div class="theme-options mini" id="themeOptions">
+              <button class="theme-opt" data-theme="light"><span class="swatch sw-light"></span>白</button>
+              <button class="theme-opt active" data-theme="dark"><span class="swatch sw-dark"></span>黑</button>
+            </div>
+          </div>
+          <div class="setting-row"><span>个性化模型</span><b id="profileVer" style="color:var(--cyan)">v1.0</b></div>
+        </div>
+      </div>
+
+      <!-- 反馈建议 -->
+      <div class="settings-group">
+        <div class="group-title">反馈建议</div>
+        <div class="card">
+          <textarea id="feedbackInput" class="feedback-input" placeholder="告诉我们你的使用体验或建议…"></textarea>
+          <button class="btn primary block" id="feedbackSubmit">提交反馈</button>
+        </div>
+      </div>
+
+      <!-- 账号设置 -->
+      <div class="settings-group">
+        <div class="group-title">账号设置</div>
+        <div class="card link-list">
+          <button class="link-item" id="accountLogin"><span>登录帐号</span><span class="arrow">›</span></button>
+          <button class="link-item" id="accountPwd"><span>更改密码</span><span class="arrow">›</span></button>
+          <button class="link-item" id="accountDelete"><span>注销账号</span><span class="arrow">›</span></button>
+        </div>
+      </div>
+
+      <button class="logout-btn" id="logoutBtn">退出登录</button>
+      <button class="btn outline block reset-mini" id="resetAppBtn">重置演示数据</button>
+    </section>
+
+  </main>
+
+  <!-- 底部 Tab -->
+  <nav class="tab-bar" id="tabBar">
+    <button class="tab active" data-page="adapt"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 0-4 4c0 1.5.8 2.8 2 3.5V12H8a3 3 0 0 0-3 3c0 1.2.7 2.2 1.7 2.7C6.3 19.9 8.6 21 12 21s5.7-1.1 5.3-3.3A3 3 0 0 0 19 15a3 3 0 0 0-3-3h-2V9.5c1.2-.7 2-2 2-3.5a4 4 0 0 0-4-4z"/></svg><span>适应</span></button>
+    <button class="tab" data-page="dialogue"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>对话</span></button>
+    <button class="tab" data-page="care"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l7.7-7.5 1.1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span>关怀</span></button>
+    <button class="tab" data-page="profile"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span>我的</span></button>
+  </nav>
+  <div class="home-indicator"></div>
+</div>
+
+<!-- 弹窗：输入正确语言 -->
+<div class="modal-overlay" id="correctModal">
+  <div class="modal-card">
+    <div class="modal-title">调试识别结果</div>
+    <p>耳挂识别有误，请输入正确的表达内容，帮助模型学习。</p>
+    <textarea id="correctInput" placeholder="请输入正确的语言内容…"></textarea>
+    <div class="modal-btns">
+      <button class="btn ghost" id="correctCancel">取消</button>
+      <button class="btn primary" id="correctSave">保存并调试</button>
+    </div>
+  </div>
+</div>
+
+<!-- 弹窗：导出纪要（文本 / 音频） -->
+<div class="modal-overlay" id="exportModal">
+  <div class="modal-card">
+    <div class="modal-title">导出纪要</div>
+    <div class="export-tabs" id="exportTabs">
+      <button class="export-tab active" data-mode="text">文本模式</button>
+      <button class="export-tab" data-mode="audio">音频模式</button>
+    </div>
+    <div class="export-body" id="exportBody"></div>
+    <div class="modal-btns">
+      <button class="btn ghost" id="exportCancel">关闭</button>
+      <button class="btn primary" id="exportConfirm">导出</button>
+    </div>
+  </div>
+</div>
+
+<!-- 通用文档弹窗（隐私政策/用户协议/使用指南/快捷指令） -->
+<div class="modal-overlay doc-modal" id="docModal">
+  <div class="modal-card">
+    <div class="modal-title" id="docTitle">文档</div>
+    <div class="doc-content" id="docContent"></div>
+    <div class="modal-btns"><button class="btn primary block" id="docClose">我知道了</button></div>
+  </div>
+</div>
+
+<!-- 账号弹窗（登录/改密/注销） -->
+<div class="modal-overlay" id="accountModal">
+  <div class="modal-card">
+    <div class="modal-title" id="accountTitle">帐号</div>
+    <p id="accountDesc"></p>
+    <input class="acct-input" id="acctInput1" placeholder="请输入" />
+    <input class="acct-input" id="acctInput2" placeholder="请再次输入" />
+    <div class="modal-btns">
+      <button class="btn ghost" id="acctCancel">取消</button>
+      <button class="btn primary" id="acctConfirm">确认</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
